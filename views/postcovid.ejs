@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/navBar.ejs") %>
+  <main role="main" class="container-fluid">
+    <!-- Εξήγηση για τον χρήστη -->
+    <p class="explanation-p">
+      Αυτή η σελίδα αφορά την περίοδο Covid-19 (καραντίνα, περιορισμοί κυκλοφορίας & ενδιάμεσα διαστήματα).
+      Απαντήστε στις ερωτήσεις και καταχωρείστε στον χάρτη μια ενδεικτική τοποθεσία
+      που θα αντικατοπτρίζει το που βγαίνατε ή συχνάζατε περισσότερο κατά την διάρκεια της καραντίνας και διαλέξτε μια από τις
+      επιλογές που έχει το marker σχετικά με το είδος της τοποθεσίας
+      (σπίτι ή δημόσιος χώρος).</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <form action="/endofsurvey" method="GET">
+            <div class="modal-content covid-form">
+              <div class="modal-header">
+                <h2>Ερωτήσεις</h2>
+              </div>
+              <!-- Ερωτήσεις -->
+              <div class="modal-body">
+                <!-- Input Type Radio Button -->
+                <div class="custom-control custom-radio question-div">
+                  <label>
+                    Πόσο συχνά επισκεπτόσασταν έναν δημόσιο χώρο κατά την διάρκεια της καραντίνας?
+                  </label><br>
+                  <label for="q1a1">
+                    <input class="custom-control-input" type="radio" id="q1a1" name="question1" required> Κάθε μέρα
+                  </label><br>
+                  <label for="q1a2">
+                    <input class="custom-control-input" type="radio" id="q1a2" name="question1" required> 3-4 φορές
+                    την εβδομάδα
+                  </label><br>
+                  <label for="q1a3">
+                    <input class="custom-control-input" type="radio" id="q1a3" name="question1" required> 1 φορά την
+                    εβδομάδα
+                  </label><br>
+                  <label for="q1a4">
+                    <input class="custom-control-input" type="radio" id="q1a4" name="question1" required> Λιγότερο
+                    από 3 φορές τον μήνα
+                  </label><br>
+                  <label for="q1a5">
+                    <input class="custom-control-input" type="radio" id="q1a5" name="question1" required> Καθόλου ή
+                    λιγότερο από 1 φορά το μήνα
+                  </label><br>
+                </div>
+
+                <hr>
+
+                <div class="custom-control custom-radio question-div">
+                  <label>
+                    Τι είδους δημόσιο χώρο επισκεπτόσασταν?
+                  </label><br>
+                  <input class="custom-control-input" type="radio" id="q2a1" name="question2" required> Πλατεία
+                  <label for="q2a1"></label><br>
+                  <label for="q2a2">
+                    <input class="custom-control-input" type="radio" id="q2a2" name="question2" required> Πάρκο
+                  </label><br>
+                  <label for="q2a3">
+                    <input class="custom-control-input" type="radio" id="q2a3" name="question2" required> Πεζόδρομο
+                  </label><br>
+                  <label for="q2a4">
+                    <input class="custom-control-input" type="radio" id="q2a4" name="question2" required> Άλσος
+                  </label><br>
+                  <label for="q2a5">
+                    <input class="custom-control-input" type="radio" id="q2a5" name="question2" required> Παραλία
+                  </label><br>
+                </div>
+
+                <hr>
+
+                <div class="custom-control custom-radio question-div">
+                  <label>
+                    Όταν κλείσανε τα μαγαζιά και βρισκόσασταν με την παρέα σας προτιμούσατε να πηγαίνετε σε
+                  </label><br>
+                  <label for="q3a1">
+                    <input class="custom-control-input" type="radio" id="q3a1" name="question3" required> Πλατεία
+                  </label><br>
+                  <label for="q3a2">
+                    <input class="custom-control-input" type="radio" id="q3a2" name="question3" required> Πάρκο
+                  </label><br>
+                  <label for="q3a3">
+                    <input class="custom-control-input" type="radio" id="q3a3" name="question3" required> Κάποιο
+                    σπίτι
+                  </label><br>
+                  <label for="q3a4">
+                    <input class="custom-control-input" type="radio" id="q3a4" name="question3" required> Δεν
+                    βρισκόμουν με την παρέα μου
+                  </label><br>
+                </div>
+
+                <hr>
+
+                <div class="custom-control custom-radio question-div">
+                  <label>
+                    Ποιος είναι ο λόγος που επισκεπτόσασταν κάποιον δημόσιο χώρο;
+                  </label><br>
+                  <label for="q4a1">
+                    <input class="custom-control-input" type="radio" id="q4a1" name="question4" required> Άθληση
+                  </label><br>
+                  <label for="q4a2">
+                    <input class="custom-control-input" type="radio" id="q4a2" name="question4" required>
+                    Συναναστροφή με άλλους ανθρώπους
+                  </label><br>
+                  <label for="q4a3">
+                    <input class="custom-control-input" type="radio" id="q4a3" name="question4" required> Ατομική
+                    βόλτα/περπάτημα
+                  </label><br>
+                  <label for="q4a4">
+                    <input class="custom-control-input" type="radio" id="q4a4" name="question4" required> Βόλτα με
+                    κατοικίδια
+                  </label><br>
+                  <label for="q4a5">
+                    <input class="custom-control-input" type="radio" id="q4a5" name="question4" required> Βόλτα με
+                    την οικογένεια σας
+                  </label><br>
+                  <label for="q4a6">
+                    <input class="custom-control-input" type="radio" id="q4a6" name="question4" required> Βόλτα με
+                    τους φίλους σας
+                </div>
+
+                <hr>
+
+                <div class="custom-control custom-radio question-div">
+                  <label>
+                    Ποιος ήταν ο μέσος χρόνος παραμονής σας σε έναν δημόσιο χώρο;
+                  </label><br>
+                  <label for="q5a1">
+                    <input class="custom-control-input" type="radio" id="q5a1" name="question5" required> Κάτω από
+                    μισή ώρα
+                  </label><br>
+                  <label for="q5a2">
+                    <input class="custom-control-input" type="radio" id="q5a2" name="question5" required> Μισή με
+                    μία ώρα
+                  </label><br>
+                  <label for="q5a3">
+                    <input class="custom-control-input" type="radio" id="q5a3" name="question5" required> Μία με δύο
+                    ώρες
+                  </label><br>
+                  <label for="q5a4">
+                    <input class="custom-control-input" type="radio" id="q5a4" name="question5" required> Πάνω από
+                    δύο ώρες
+                  </label><br>
+                </div>
+
+                <hr>
+
+                <div class="custom-control custom-radio question-div">
+                  <label>
+                    Ποιο ήταν το μέσο μετακίνησης σας προς τον δημόσιο χώρο;
+                  </label><br>
+                  <label for="q6a1">
+                    <input class="custom-control-input" type="radio" id="q6a1" name="question6" required> Μέσα
+                    Μαζικής Μεταφοράς
+                  </label><br>
+                  <label for="q6a2">
+                    <input class="custom-control-input" type="radio" id="q6a2" name="question6" required> Αυτοκίνητο
+                  </label><br>
+                  <label for="q6a3">
+                    <input class="custom-control-input" type="radio" id="q6a3" name="question6" required> Περπάτημα
+                  </label><br>
+                  <label for="q6a4">
+                    <input class="custom-control-input" type="radio" id="q6a4" name="question6" required> Ποδήλατο
+                  </label><br>
+                </div>
+
+                <hr>
+
+                <!-- Input Type Checkbox -->
+                <div class="custom-control question-div">
+                  <label>Για ποιον/ποιους λόγους σας προσέλκυε ο δημόσιος χώρος που επισκεπτόσασταν πιο συχνά;
+                    <small>(Σημειώστε με όσα συμφωνείτε)</small>
+                  </label><br>
+                  <label for="inp-1">
+                    <input class="custom-control-input" type="checkbox" name="inp" required> Βρίσκεται κοντά στην
+                    κατοικία σας</label><br>
+                  <label for="inp-2">
+                    <input class="custom-control-input" type="checkbox" name="inp" required> Βρίσκεται σε μέρος που
+                    έχει όμορφο τοπίο</label><br>
+                  <label for="inp-3">
+                    <input class="custom-control-input" type="checkbox" name="inp" required> Δεν σας αρέσει αλλά τον
+                    επισκέπτεστε επειδή συχνάζει εκεί η παρέα σας </label><br>
+                  <label for="inp-4">
+                    <input class="custom-control-input" type="checkbox" name="inp" required> Δεν συχνάζει πολύ
+                    κόσμος</label><br>
+                  <label for="inp-5">
+                    <input class="custom-control-input" type="checkbox" name="inp" required> Συχνάζει πολύ
+                    κόσμος</label><br>
+                  <label for="inp-6">
+                    <input class="custom-control-input" type="checkbox" name="inp" required> Είναι ωραία
+                    διαμορφωμένος/Έχει καλές-επαρκείς υποδομές</label><br>
+                </div>
+
+                <hr>
+
+                <div class="custom-control custom-radio question-div">
+                  <label>Η απαγόρευση κυκλοφορίας, μετά τις 21:00 επηρέασε τη συχνότητα επίσκεψης των δημόσιων
+                    χώρων ή/και το χρόνο παραμονής σας σε αυτούς;
+                  </label><br>
+                  <label for="q7a1">
+                    <input type="radio" id="q7a1" name="question7" required> Ναι, επηρέασε την
+                    συχνότητα</label><br>
+                  <label for="q7a2">
+                    <input type="radio" id="q7a2" name="question7" required> Ναι, έχει επηρέασε τον χρόνο
+                    παραμονής</label><br>
+                  <label for="q7a3">
+                    <input type="radio" id="q7a3" name="question7" required> Ναι, έχει επηρέασε και τα δύο παραπάνω
+                  </label><br>
+                  <label for="q7a4">
+                    <input type="radio" id="q7a4" name="question7" required> Όχι</label><br>
+                </div>
+              </div>
+            </div>
+            <input type="hidden" id="oneoption" name="oneoption">
+            <input type="hidden" id="twooption" name="twooption">
+            <input type="hidden" id="username" name="username">
+            <div class="modal-footer">
+              <button type="button" id="nextButtonNamePre" class="btn next-button">Next</button>
+            </div>
+        </div>
+        </form>
+
+
+        <div class="col-sm">
+          <div id="map"></div>
+          <script src="javascripts/webmap.js"></script>
+          <script>
+            document.getElementById('nextButtonNamePre').onclick = function() {
+              var value1 = "";
+              var i = 1
+              var markedCheckbox1 = document.querySelectorAll('input[name="question1"]');
+              for (var checkbox1 of markedCheckbox1) {
+                if (checkbox1.checked == true) {
+                  value1 = i;
+                }
+                i++;
+              }
+              console.log(value1)
+              if (value1 == "") {
+                alert("Ξέχασες να απαντήσεις στην πρώτη ερώτηση!")
+                return
+              }
+
+              var value2 = "";
+              var i = 1
+              var markedCheckbox2 = document.querySelectorAll('input[name="question2"]');
+              for (var checkbox2 of markedCheckbox2) {
+                if (checkbox2.checked == true) {
+                  value2 = i;
+                }
+                i++;
+              }
+              if (value2 == "") {
+                alert("Ξέχασες να απαντήσεις στην δεύτερη ερώτηση!")
+                return
+              }
+
+
+              var value3 = "";
+              var i = 1
+              var markedCheckbox3 = document.querySelectorAll('input[name="question3"]');
+              for (var checkbox3 of markedCheckbox3) {
+                if (checkbox3.checked == true) {
+                  value3 = i;
+                }
+                i++;
+              }
+              if (value3 == "") {
+                alert("Ξέχασες να απαντήσεις στην τρίτη ερώτηση!")
+                return
+              }
+
+              var value4 = "";
+              var i = 1;
+              var markedCheckbox4 = document.querySelectorAll('input[name="question4"]');
+              for (var checkbox4 of markedCheckbox4) {
+                if (checkbox4.checked == true) {
+                  value4 = i;
+                }
+                i++;
+              }
+              if (value4 == "") {
+                alert("Ξέχασες να απαντήσεις στην τέταρτη ερώτηση!")
+                return
+              }
+
+              var value5 = "";
+              var i = 1;
+              var markedCheckbox5 = document.querySelectorAll('input[name="question5"]');
+              for (var checkbox5 of markedCheckbox5) {
+                if (checkbox5.checked == true) {
+                  value5 = i;
+                }
+                i++;
+              }
+              if (value5 == "") {
+                alert("Ξέχασες να απαντήσεις στην πέμπτη ερώτηση!")
+                return
+              }
+
+              var value6 = "";
+              var i = 1;
+              var markedCheckbox6 = document.querySelectorAll('input[name="question6"]');
+              for (var checkbox6 of markedCheckbox6) {
+                if (checkbox6.checked == true) {
+                  value6 = i;
+                }
+                i++;
+              }
+              if (value6 == "") {
+                alert("Ξέχασες να απαντήσεις στην έκτη ερώτηση!")
+                return
+              }
+
+              var value7 = "";
+              var i = 1;
+              var markedCheckbox7 = document.querySelectorAll('input[name="question7"]');
+              for (var checkbox7 of markedCheckbox7) {
+                if (checkbox7.checked == true) {
+                  value7 = i;
+                }
+                i++;
+              }
+              if (value7 == "") {
+                alert("Ξέχασες να απαντήσεις στην έβδομη ερώτηση!")
+                return
+              }
+              var value = []
+              var i = 1;
+              var markedCheckbox = document.querySelectorAll('input[type="checkbox"]:checked');
+              for (var checkbox of markedCheckbox) {
+                if (checkbox.value == "on") {
+                  value.push(i);
+                }
+                i++;
+              }
+              if (value == "") {
+                alert("Ξέχασες να απαντήσεις στην τελευταία ερώτηση!")
+                return
+              }
+
+              var position = {}
+              if (document.getElementById("position_x") == undefined) {
+                alert("Καταχωρήστε μια τοποθεσία στον χάρτη!")
+                return
+              } else {
+                position_x = document.getElementById("position_x").value
+                position_y = document.getElementById("position_y").value
+                position = {
+                  x: position_x,
+                  y: position_y
+                }
+              }
+
+              var value8 = "";
+              var i = 1;
+              var markedCheckbox8 = document.querySelectorAll('input[name="question8"]');
+              for (var checkbox8 of markedCheckbox8) {
+                if (checkbox8.checked == true) {
+                  value8 = i;
+                }
+                i++;
+              }
+              if (value8 == "") {
+                alert("Select Option 8")
+                return
+              }
+
+              var Twooption = {
+                position: position,
+                option1: value1,
+                option2: value2,
+                option3: value3,
+                option4: value4,
+                option5: value5,
+                option6: value6,
+                option7: value7,
+                option8: value8
+              }
+              // console.log(Twooption)
+              document.getElementById("username").value = localStorage.username;
+              document.getElementById("oneoption").value = localStorage.Oneoption;
+              document.getElementById("twooption").value = JSON.stringify(Twooption);
+              document.querySelector("form").submit();
+            }
+          </script>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <%- include("./partials/jsFiles.ejs") %>
+</body>
+
+</html>

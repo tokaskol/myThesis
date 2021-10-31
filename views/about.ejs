@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <img src="/assets/images/tree-logo.png" class="tree-logo" />
+        <ul class="unordered-list ml-auto navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main role="main" class="container-fluid">
+    <!-- TITLE & ABOUT PARAGRAPH -->
+    <div class="about-div">
+      <h3 class="about-title">"Ανάπτυξη διαδικτυακής πλατφόρμας για την διερεύνηση της χρήσης του δημοσίου χώρου των πόλεων κατά τη διάρκεια της πανδημίας Covid-19."</h3>
+      <p class="about-p">
+        Η παρούσα εργασία αφορά τον σχεδιασμό και την ανάπτυξη μιας λειτουργικής διαδικτυακής πλατφόρμας (εφαρμογής) η οποία θα χρησιμεύσει ως εργαλείο
+        για την διερεύνηση της χρήσης του δημόσιου χώρου της Αθήνας και πως άλλαξε αυτή κατά την διάρκεια της πανδημίας Covid-19.
+      </p>
+      <br>
+      <p class="about-p">Συγγραφή: Εύα Ανέστου<br>
+        <a href="http://semfe.ntua.gr/el/faculty-members/item/40-stefaneas">Επιβλέπων Καθηγητής: Πέτρος Στεφανέας </a><br>
+        <a href="http://semfe.ntua.gr/el/">Σχολή: Εφαρμοσμένων Μαθηματικών & Φυσικών Επιστημών, ΕΜΠ</a>
+      </p>
+    </div>
+  </main>
+  <footer id="footer">
+    &copyΣεπτέμβριος 2021
+  </footer>
+  <%- include("./partials/jsFiles.ejs") %>
+</body>
+
+</html>
